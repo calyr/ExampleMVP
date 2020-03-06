@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ExampleMVP</string>
+    <string name="login_form_title">Inicio de Sesión</string>
+    <string name="login_form_username_hint">Ingrese su nombre de usuario</string>
+    <string name="login_form_password_hint">Ingrese su password</string>
+    <string name="login_form_btn_iniciar_sesion">Iniciar sesión</string>
 </resources>
