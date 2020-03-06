@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity(), ILoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        loginPresenter = LoginPresenter(this)
     }
 
     fun loginOnClick(view: View) {
