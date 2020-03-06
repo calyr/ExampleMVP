@@ -28,6 +28,6 @@ class LoginActivity : AppCompatActivity(), ILoginView {
     }
 
     fun loginOnClick(view: View) {
-
+        loginPresenter.login(username.text.toString(), password.text.toString())
     }
 }
