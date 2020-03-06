@@ -4,4 +4,8 @@
     <string name="login_form_username_hint">Ingrese su nombre de usuario</string>
     <string name="login_form_password_hint">Ingrese su password</string>
     <string name="login_form_btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="login_form_username_empty">El campo Usuario no puede estar vacío</string>
+    <string name="login_form_password_empty">El campo Password no puede estar vacío</string>
+    <string name="login_form_success">Inicio de sesión exitoso</string>
+    <string name="login_form_error">Usuario y password inválidos</string>
 </resources>
