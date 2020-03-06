@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), ILoginView {
 
+    lateinit var loginPresenter: ILoginPresenter
     override fun showErrorUserName(message: String) {
         username.error = message
     }
