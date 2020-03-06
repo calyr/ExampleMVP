@@ -2,8 +2,22 @@ package com.calyrsoft.examplemvp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), ILoginView {
+
+    override fun showErrorUserName(message: String) {
+        username.error = message
+    }
+
+    override fun showErrorPassword(message: String) {
+        password.error = message
+    }
+
+    override fun showMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
