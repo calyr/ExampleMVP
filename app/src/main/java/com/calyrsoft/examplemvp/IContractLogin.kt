@@ -5,6 +5,8 @@ interface IContractLogin {
         fun showErrorUserName(message: String)
         fun showErrorPassword(message: String)
         fun showMessage(message: String)
+        fun showLoading()
+        fun hideLoading()
     }
 
     interface Presenter {

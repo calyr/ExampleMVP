@@ -30,4 +30,14 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
     fun loginOnClick(view: View) {
         loginPresenter.login(username.text.toString(), password.text.toString())
     }
+
+    override fun showLoading() {
+        progressBar.visibility = View.VISIBLE
+        group.visibility = View.GONE
+    }
+
+    override fun hideLoading() {
+        progressBar.visibility = View.GONE
+        group.visibility = View.VISIBLE
+    }
 }
