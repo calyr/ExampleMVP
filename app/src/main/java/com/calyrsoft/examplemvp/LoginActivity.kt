@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(), ILoginView {
+class LoginActivity : AppCompatActivity(), IContractLogin.View {
 
-    lateinit var loginPresenter: ILoginPresenter
+    lateinit var loginPresenter: IContractLogin.Presenter
     override fun showErrorUserName(message: String) {
         username.error = message
     }

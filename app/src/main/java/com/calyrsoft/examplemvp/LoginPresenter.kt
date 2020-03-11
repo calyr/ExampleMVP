@@ -2,7 +2,7 @@ package com.calyrsoft.examplemvp
 
 import android.content.Context
 
-class LoginPresenter(val view: ILoginView, val context: Context): ILoginPresenter {
+class LoginPresenter(val view: IContractLogin.View, val context: Context): IContractLogin.Presenter {
     override fun login(userName: String, password: String) {
         if( userName.isEmpty()) {
             view.showErrorUserName( context.getString(R.string.login_form_username_empty))
