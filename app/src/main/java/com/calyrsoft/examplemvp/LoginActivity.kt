@@ -1,5 +1,6 @@
 package com.calyrsoft.examplemvp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -31,6 +32,10 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
         loginPresenter.login(username.text.toString(), password.text.toString())
     }
 
+    fun createOnClick(view: View) {
+        navigateToCreateAccount()
+    }
+
     override fun showLoading() {
         progressBar.visibility = View.VISIBLE
         group.visibility = View.GONE
@@ -39,5 +44,9 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
     override fun hideLoading() {
         progressBar.visibility = View.GONE
         group.visibility = View.VISIBLE
+    }
+
+    override fun navigateToCreateAccount() {
+        startActivity(Intent(this, CreateAccountActivity::class.java))
     }
 }
