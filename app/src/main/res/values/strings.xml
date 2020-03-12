@@ -9,4 +9,5 @@
     <string name="login_form_success">Inicio de sesión exitoso</string>
     <string name="login_form_error">Usuario y password inválidos</string>
     <string name="create_account_text_view">Crear Cuenta</string>
+    <string name="login_activity_name">Login</string>
 </resources>
