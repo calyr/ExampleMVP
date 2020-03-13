@@ -32,7 +32,7 @@ class CreateAccountActivity : AppCompatActivity() {
                 true
             }
            else -> {
-                true
+                super.onOptionsItemSelected(item)
            }
        }
     }
