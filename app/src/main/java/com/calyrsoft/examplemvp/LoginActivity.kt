@@ -3,6 +3,7 @@ package com.calyrsoft.examplemvp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
@@ -26,6 +27,18 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         loginPresenter = LoginPresenter(this, applicationContext)
+        print("${session.isLogin}")
+        Log.d("VALOR DE LA SESSION",  session.isLogin.toString() )
+
+        profile_text_view.setOnClickListener {
+            if( session.isLogin ) {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Acceso no permitido", Toast.LENGTH_LONG).show()
+            }
+
+        }
     }
 
     fun loginOnClick(view: View) {
