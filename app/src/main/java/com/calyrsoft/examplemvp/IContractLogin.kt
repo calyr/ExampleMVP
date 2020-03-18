@@ -8,6 +8,7 @@ interface IContractLogin {
         fun showLoading()
         fun hideLoading()
         fun navigateToCreateAccount()
+        fun goToProfile()
     }
 
     interface Presenter {

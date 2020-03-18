@@ -12,6 +12,7 @@ class LoginPresenter(val view: IContractLogin.View, val context: Context): ICont
                 view.showErrorUserName( context.getString(R.string.login_form_username_empty))
             } else {
                 if( userName == "calyr") {
+                    session.isLogin = true
                     view.showMessage(context.getString(R.string.login_form_success))
                 } else {
                     view.showMessage(context.getString(R.string.login_form_error))

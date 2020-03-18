@@ -1,6 +1,9 @@
 package com.calyrsoft.examplemvp
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +12,12 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), IContractLogin.View {
+
+    fun isConexion( context: Context) : Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        return activeNetwork?.isConnectedOrConnecting == true
+    }
 
     lateinit var loginPresenter: IContractLogin.Presenter
     override fun showErrorUserName(message: String) {
@@ -38,6 +47,13 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
                 Toast.makeText(this, "Acceso no permitido", Toast.LENGTH_LONG).show()
             }
 
+            if(isConexion(applicationContext)) {
+                Toast.makeText(this, "Tiene acceso a internet", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "No tiene acceso a internet", Toast.LENGTH_LONG).show()
+            }
+
+
         }
     }
 
@@ -61,5 +77,10 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
 
     override fun navigateToCreateAccount() {
         startActivity(Intent(this, CreateAccountActivity::class.java))
+    }
+
+    override fun goToProfile() {
+        startActivity(Intent(this, ProfileActivity::class.java))
+        finish()
     }
 }
