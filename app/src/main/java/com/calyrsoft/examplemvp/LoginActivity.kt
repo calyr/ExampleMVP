@@ -10,6 +10,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity(), IContractLogin.View {
 
@@ -36,6 +38,17 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         loginPresenter = LoginPresenter(this, applicationContext)
+
+        GlobalScope.launch {
+            val bookDao = AppRoomDatabase.getDatabase(applicationContext).bookDato()
+            val repository = BookRepository(bookDao)
+            repository.insert(Book("the best seller: Android"))
+            val lista = repository.getListBooks()
+            lista.forEach {
+                Log.d("DBTEST","Id book = ${it.id}, Title: ${it.title}")
+            }
+        }
+
         print("${session.isLogin}")
         Log.d("VALOR DE LA SESSION",  session.isLogin.toString() )
 
@@ -58,7 +71,7 @@ class LoginActivity : AppCompatActivity(), IContractLogin.View {
     }
 
     fun loginOnClick(view: View) {
-        loginPresenter.login(username.text.toString(), password.text.toString())
+        loginPresenter.login(username.editText?.text.toString(), password.editText?.text.toString())
     }
 
     fun createOnClick(view: View) {
